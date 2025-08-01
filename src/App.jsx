@@ -2,8 +2,8 @@ import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Component Imports
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 // Page Imports
 import HomePage from './pages/HomePage';
