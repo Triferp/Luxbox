@@ -1,0 +1,41 @@
+/* Import Tailwind's base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your custom styles and animations */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.5s ease-in-out; }
+.animate-fade-in-down { animation: fadeInDown 0.3s ease-in-out; }
+.animate-fade-in-fast { animation: fadeIn 0.2s ease-in-out; }
+
+/* Add these classes for the scroll animations */
+.scroll-animate {
+  transition-property: opacity, transform;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.scroll-animate-start {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+.scroll-animate-end {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
