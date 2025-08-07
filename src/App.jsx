@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react"
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="bg-white">
+      <Analytics />
       <Header activePage={activePage} />
       <main>
         <Routes>
