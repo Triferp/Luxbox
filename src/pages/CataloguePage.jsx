@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 
 // --- This is your list of PDF catalogues ---
 // --- Place your PDF files in the 'public/pdfs/' folder ---
@@ -28,13 +27,6 @@ const IconClock = (props) => (
 const CataloguePage = () => {
     return (
         <div className="bg-white min-h-screen">
-            <Helmet>
-                <title>Full Product Catalogue | LED Lights, Wires, Switches | Luxbox</title>
-                <meta
-                    name="description"
-                    content="Explore the complete Luxbox product catalogue. Find everything from modern LED lighting solutions to durable PVC pipes and electrical fittings for your project across India."
-                />
-            </Helmet>
             <div className="container mx-auto px-4 py-32">
 
                 {/* Page Header */}
