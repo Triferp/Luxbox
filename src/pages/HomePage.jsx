@@ -106,7 +106,7 @@ const HomePage = ({ navigate }) => {
           <div className="grid md:grid-cols-3 gap-8">
             <ProductCard image="/HomePage/CoreCategory/category-light.png" name="Modern Lighting Solutions" category="Lights" to="/category/lights" />
             <ProductCard image="/HomePage/CoreCategory/category-wires.png" name="Wiring for Modern Homes" category="Wires" to="/category/wires" />
-            <ProductCard image="/HomePage/CoreCategory/category-switches.png" name="High Qaulity Switches and Gears" category="Switches and Gears" to="/category/switches-and-gears" />
+            <ProductCard image="/HomePage/CoreCategory/category-switches.png" name="High Quality Switches and Gears" category="Switches and Gears" to="/category/switches-and-gears" />
           </div>
         </div>
       </section>

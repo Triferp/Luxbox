@@ -4,7 +4,7 @@ import IconWrapper from '../components/IconWrapper';
 import { IconMail, IconMapPin, IconPhone } from '../components/Icons';
 
 const ContactForm = () => (
-  <form action="https://formspree.io/f/your_unique_code" method="POST" className="space-y-4">
+  <form action="https://formspree.io/f/xrblqqjj" method="POST" className="space-y-4">
     <div><label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label><input type="text" id="name" name="name" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"/></div>
     <div><label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label><input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"/></div>
     <div><label htmlFor="subject" className="block text-sm font-medium text-gray-700">Subject</label><input type="text" id="subject" name="subject" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"/></div>
@@ -14,7 +14,7 @@ const ContactForm = () => (
 );
 
 const DealershipForm = () => (
-  <form action="https://formspree.io/f/your_DEALERSHIP_code" method="POST" className="space-y-4">
+  <form action="https://formspree.io/f/xyzpwway" method="POST" className="space-y-4">
     <div><label htmlFor="companyName" className="block text-sm font-medium text-gray-700">Company Name</label><input type="text" id="companyName" name="Company Name" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"/></div>
     <div><label htmlFor="contactPerson" className="block text-sm font-medium text-gray-700">Contact Person</label><input type="text" id="contactPerson" name="Contact Person" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"/></div>
     <div><label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number</label><input type="tel" id="phone" name="Phone" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"/></div>
