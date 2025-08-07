@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const CategoryPage = () => {
   const { name } = useParams();
@@ -58,6 +59,13 @@ const CategoryPage = () => {
 
   return (
     <div className="animate-fade-in">
+      <Helmet>
+        <title>{`Shop High-Quality ${categoryName} | Luxbox`}</title>
+        <meta 
+          name="description" 
+          content={`Browse our complete collection of premium ${name}. Find the best deals on ${name} for residential and commercial projects at Luxbox.`} 
+        />
+      </Helmet>
       <div className={`${currentCategoryData.bgColor} pt-32 pb-16 transition-colors duration-300`}>
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold text-gray-800">{currentCategoryData.title}</h1>

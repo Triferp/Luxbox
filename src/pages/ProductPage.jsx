@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import ProductModal from '../components/ProductModal';
 import { allProducts } from '../data/products'; // Import the data from our new central file
@@ -23,6 +24,13 @@ const ProductPage = () => {
   return (
     <>
       <div className="container mx-auto px-4 py-40">
+        <Helmet>
+          <title>{`Buy ${productName} Online | Luxbox ${category}`}</title>
+          <meta
+            name="description"
+            content={`Get details, specifications, and pricing for the ${productName}. Luxbox offers the best ${category} products with a focus on quality and durability.`}
+          />
+        </Helmet>
         <h1 className="text-4xl font-bold mb-4">{title}</h1>
         <p className="text-lg text-gray-600 mb-12">Browse our collection of {title}.</p>
 
