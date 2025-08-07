@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
@@ -27,6 +28,7 @@ function App() {
   return (
     <div className="bg-white">
       <Analytics />
+      <SpeedInsights />
       <Header activePage={activePage} />
       <main>
         <Routes>
