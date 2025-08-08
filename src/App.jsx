@@ -1,20 +1,27 @@
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/react"
-import React from 'react';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import React, { Suspense, lazy } from 'react'; // <-- 1. IMPORT Suspense and lazy
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-// Component Imports
+// Component Imports (These are part of the main layout, so they are not lazy-loaded)
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-// Page Imports
-import HomePage from './pages/HomePage';
-import CategoryPage from './pages/CategoryPage';
-import ProductPage from './pages/ProductPage'; // <-- 1. IMPORT the new page
-import AboutPage from './pages/AboutPage';
-import SupportPage from './pages/SupportPage';
-import BlogPage from './pages/BlogPage';
-import CataloguePage from './pages/CataloguePage';
+// 2. DYNAMICALLY IMPORT your page components
+const HomePage = lazy(() => import('./pages/HomePage'));
+const CategoryPage = lazy(() => import('./pages/CategoryPage'));
+const ProductPage = lazy(() => import('./pages/ProductPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const SupportPage = lazy(() => import('./pages/SupportPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const CataloguePage = lazy(() => import('./pages/CataloguePage'));
+
+// 3. CREATE a fallback component to show while pages load
+const LoadingFallback = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
+    <p>Loading...</p>
+  </div>
+);
 
 function App() {
   const location = useLocation();
@@ -31,23 +38,18 @@ function App() {
       <SpeedInsights />
       <Header activePage={activePage} />
       <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-
-          {/* --- ROUTING CHANGES --- */}
-          {/* 2. ADD the new, more specific route for the product pages. */}
-          {/* This will handle URLs like /category/lights/cob-downlights */}
-          <Route path="/category/:category/:subcategory" element={<ProductPage />} />
-
-          {/* This existing route will continue to handle the main category pages */}
-          <Route path="/category/:name" element={<CategoryPage key={location.pathname} />} />
-          {/* --- END OF CHANGES --- */}
-          
-          <Route path="/catalogue" element={<CataloguePage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/support/:subpage" element={<SupportPage key={location.pathname} />} />
-        </Routes>
+        {/* 4. WRAP your Routes in the Suspense component */}
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/category/:category/:subcategory" element={<ProductPage />} />
+            <Route path="/category/:name" element={<CategoryPage key={location.pathname} />} />
+            <Route path="/catalogue" element={<CataloguePage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/support/:subpage" element={<SupportPage key={location.pathname} />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </div>
