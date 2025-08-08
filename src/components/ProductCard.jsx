@@ -17,7 +17,7 @@ const ProductCard = ({ image, name, category, to }) => {
         }`}
       >
         <div className="relative overflow-hidden">
-          <img src={image} alt={name} className="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-110" />
+          <img src={image} alt={name} loading="lazy" className="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-110" />
           <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         </div>
         <div className="p-4 bg-white">

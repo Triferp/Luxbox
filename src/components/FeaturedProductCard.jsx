@@ -11,6 +11,7 @@ const FeaturedProductCard = ({ product, navigate, bgColor = 'bg-white' }) => (
     <img
       src={product.image}
       alt={product.name}
+      loading = "lazy"
       className="h-full w-full object-contain transition-transform duration-300 ease-in-out group-hover/card:scale-110"
     />
 

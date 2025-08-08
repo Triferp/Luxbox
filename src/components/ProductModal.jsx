@@ -25,7 +25,7 @@ const ProductModal = ({ product, onClose }) => {
 
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <img src={product.image} alt={product.name} className="w-full h-auto object-cover rounded-lg" />
+            <img src={product.image} alt={product.name} loading="lazy" className="w-full h-auto object-cover rounded-lg" />
           </div>
           <div className="flex flex-col">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h2>
