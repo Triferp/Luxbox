@@ -1,7 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const AboutPage = () => (
     <div className="animate-fade-in">
+        <Helmet>
+            <title>About Luxbox | Our Story, Mission & Commitment to Quality</title>
+            <meta 
+              name="description" 
+              content="Learn about the story and mission behind Luxbox. Discover our commitment to quality, design, and innovation as a leading Indian brand for electrical and lighting solutions." 
+            />
+        </Helmet>
+
         <div className="bg-blue-50 pt-32 pb-16">
             <div className="container mx-auto px-4 text-center">
                 <h1 className="text-4xl font-bold text-gray-800">About Luxbox</h1>

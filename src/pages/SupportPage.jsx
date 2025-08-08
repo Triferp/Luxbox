@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom'; // Import the useParams hook
+import { Helmet } from 'react-helmet-async';
 import IconWrapper from '../components/IconWrapper'; 
 import { IconMail, IconMapPin, IconPhone } from '../components/Icons';
 
@@ -30,11 +31,19 @@ const SupportPage = () => {
     const { subpage } = useParams();
 
     const isContact = subpage === 'contact';
-    const title = isContact ? "Contact Our Support Team" : "Become a Luxbox Dealer";
-    const description = isContact ? "Have a question or need help with a product? We're here for you." : "Partner with us to bring Luxbox quality to your customers. Fill out the form below to get started.";
+
+    const pageTitle = isContact ? "Contact Us | Luxbox Support" : "Dealership Inquiry | Partner with Luxbox";
+    const pageDescription = isContact 
+        ? "Get in touch with the Luxbox support team. Contact us for product questions, technical help, or general inquiries. We're here to help." 
+        : "Become a Luxbox dealer or distributor in India. Partner with us to bring our premium lighting and electrical solutions to your customers.";
 
     return (
         <div className="animate-fade-in pt-32 pb-20 bg-gray-50">
+            <Helmet>
+                <title>{pageTitle}</title>
+                <meta name="description" content={pageDescription} />
+            </Helmet>
+
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto text-center mb-12">
                     <h1 className="text-4xl font-bold text-gray-800">{title}</h1>

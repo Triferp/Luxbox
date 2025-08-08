@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import BlogPostCard from '../components/BlogPostCard';
 import { IconX } from '../components/Icons';
 
@@ -139,6 +140,13 @@ const BlogPage = () => {
 
   return (
     <div className="animate-fade-in">
+      <Helmet>
+        <title>Luxbox Blog | Lighting Tips, Home Design & Electrical Safety</title>
+        <meta 
+          name="description" 
+          content="Read the latest articles from the experts at Luxbox. Find tips on innovative lighting solutions, modern home decor, electrical safety, and our latest product guides." 
+        />
+      </Helmet>
       <div className="bg-orange-50 pt-32 pb-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold text-gray-800">Luxbox Blog</h1>

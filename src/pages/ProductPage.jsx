@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import ProductModal from '../components/ProductModal';
 import { allProducts } from '../data/products'; // Import the data from our new central file
 
@@ -17,11 +18,19 @@ const ProductPage = () => {
     )
     .join(' ');
 
+  const pageTitle = `Buy ${title} Online | Luxbox India`;
+  const pageDescription = `Explore the best ${title.toLowerCase()} from Luxbox. Find high-quality, reliable solutions for all your residential and commercial needs in India.`;
+
   // Filter the 'allProducts' list to find the ones for the current page
   const products = allProducts.filter(p => p.category === category && p.subcategory === subcategory);
 
   return (
     <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+      </Helmet>
+      
       <div className="container mx-auto px-4 py-40">
         <h1 className="text-4xl font-bold mb-4">{title}</h1>
         <p className="text-lg text-gray-600 mb-12">Browse our collection of {title}.</p>

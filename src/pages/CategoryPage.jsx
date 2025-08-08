@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 
 const CategoryPage = () => {
@@ -50,6 +51,9 @@ const CategoryPage = () => {
 
   if (!currentCategoryData) return <div className="py-40 text-center">Category not found.</div>;
 
+  const pageTitle = `${currentCategoryData.title} | Luxbox`;
+  const pageDescription = `Explore Luxbox's collection of ${currentCategoryData.title.toLowerCase()}. ${currentCategoryData.description}`;
+
   const IconClock = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -58,6 +62,11 @@ const CategoryPage = () => {
 
   return (
     <div className="animate-fade-in">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+      </Helmet>
+      
       <div className={`${currentCategoryData.bgColor} pt-32 pb-16 transition-colors duration-300`}>
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold text-gray-800">{currentCategoryData.title}</h1>
@@ -97,7 +106,7 @@ const CategoryPage = () => {
                     <h3 className="text-2xl font-bold text-white transform transition-transform duration-300 group-hover:scale-105">
                       {sub.name}
                     </h3>
-                    
+
                     <div className="mt-4 opacity-0 transform transition-all duration-300 group-hover:opacity-100">
                       <p className="text-lg text-white font-semibold">View Products &rarr;</p>
                     </div>

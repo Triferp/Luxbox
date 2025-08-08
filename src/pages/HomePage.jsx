@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import FeatureCard from '../components/FeatureCard';
 import ProductCard from '../components/ProductCard';
 import { IconSun, IconWrench, IconZap } from '../components/Icons';
@@ -74,6 +75,14 @@ const HomePage = ({ navigate }) => {
 
   return (
     <div className="animate-fade-in">
+      <Helmet>
+        <title>Luxbox | Premium LED Lights, Switches & Electrical Solutions</title>
+        <meta 
+          name="description" 
+          content="Explore Luxbox, India's leading brand for premium LED lighting, high-quality modular switches, and complete electrical fittings. Discover our elegantly designed products for a safe, bright, and connected future." 
+        />
+      </Helmet>
+
       <section className="relative h-[90vh] w-full flex items-center justify-center text-white overflow-hidden">
         {slides.map((slide, index) => (
           <div key={slide.image} className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-[2000ms] ${index === heroCurrentIndex ? 'opacity-100' : 'opacity-0'}`} style={{ backgroundImage: `url(${slide.image})` }} />
